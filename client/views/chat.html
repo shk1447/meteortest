@@ -1,0 +1,19 @@
+<!--
+  author : shkim <shk1447@n3n.co.kr>
+-->
+<template name="chat">
+    <h1>CHATTING ROOM</h1>
+    <div>
+        <ul>
+            {{#each list}}
+            <li>
+                <span style="color:darkgreen">[{{username}}]</span>
+                <span style="color:darkslategray">{{message}}</span>
+                <span style="color:darkblue">{{createAt}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <label >{{currentUsername}}</label>
+    <input id="messageInput" style="width:40%;" placeholder="Enter Key" />
+</template>
