@@ -1,0 +1,18 @@
+<!--
+  author : shkim <shk1447@n3n.co.kr>
+-->
+<template name="posts">
+    <div>
+        <ul>
+          {{#each list}}
+            <div> {{username}}</div>
+              <li>
+                  <span style="color:darkgreen">[{{username}}]</span>
+                  <span style="color:darkslategray">{{message}}</span>
+                  <span style="color:darkblue">{{createAt}}</span>
+                  <button id="messageDelbtn" createdAt="{{createAt}}" >X</button>
+              </li>
+          {{/each}}
+        </ul>
+    </div>
+</template>

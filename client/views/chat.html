@@ -3,17 +3,35 @@
 -->
 <template name="chat">
     <h1>CHATTING ROOM</h1>
+
     <div>
         <ul>
-            {{#each list}}
-            <li>
-                <span style="color:darkgreen">[{{username}}]</span>
-                <span style="color:darkslategray">{{message}}</span>
-                <span style="color:darkblue">{{createAt}}</span>
-            </li>
+            {{#each postlist}}
+                <div>제목 : {{title}}</div>
+                <div>내용 : {{contents}}</div>
+                <div>글쓴이 : {{username}}</div>
+                <div>생성시간 : {{createdAt}}</div>
+                <li>
+                    {{#each commentlist}}
+                    <span style="color:darkgreen">[{{username}}]</span>
+                    <span style="color:darkslategray">{{message}}</span>
+                    <span style="color:darkblue">{{createAt}}</span>
+                    <button id="messageDelbtn" createdAt="{{createAt}}" >X</button>
+                    {{/each}}
+                </li>
+                <label >[{{currentUsername}}]</label>
+                <input id="messageInput" style="width:40%;" placeholder="댓글을 입력하시오!" />
+
             {{/each}}
+            <div>
+                ----------------------------------------------------------------------------------------------------------------------------
+            </div>
+            <div>
+                <label>[{{currentUsername}}]</label>
+                <input type="text" id="titleinput" placeholder="제목 입력"/>
+                <input type="text" id="postinput" placeholder="내용 입력"/>
+                <button id="postbtn">글쓰기</button>
+            </div>
         </ul>
     </div>
-    <label >{{currentUsername}}</label>
-    <input id="messageInput" style="width:40%;" placeholder="Enter Key" />
 </template>
