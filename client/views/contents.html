@@ -4,7 +4,7 @@
 <template name="contents">
   <div>
       {{#each postlist}}
-        <div>내용 : {{contents}}</div>
+        <textarea>내용 : {{contents}}</textarea>
         <li>
             {{#each commentlist}}
                 <span style="color:darkgreen">[{{username}}]</span>

@@ -2,4 +2,15 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="users">
+    <ul>
+      {{#each userlist}}
+          <div>
+              <span>이름 : {{name}}</span>
+              <a> / </a>
+              <span>나이 : {{age}}</span>
+              <a> / </a>
+              <span>성별 : {{gender}}</span>
+          </div>
+      {{/each}}
+    </ul>
 </template>

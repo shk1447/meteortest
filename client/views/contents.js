@@ -13,7 +13,6 @@ if (Meteor.isClient) {
     });
 
     Template.contents.helpers({
-
     });
 
     Template.contents.events({});
