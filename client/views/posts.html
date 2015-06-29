@@ -8,7 +8,7 @@
                 <div>
                     <a>[{{number}}] : </a>
                     <a>제목 : </a>
-                    <!-- -->
+                    <!--click event시 postpage/postid로 route해줘야함-->
                     <a class="title" postId="{{_id}}" href="">{{title}}</a>
                     <a> / </a>
                     <span>글쓴이 : {{username}}</span>
@@ -32,8 +32,6 @@
                 <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
             </div>
             -->
-
-
             {{/each}}
         </ul>
         <div style="width:300px;margin:auto;">
