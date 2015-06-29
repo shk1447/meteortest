@@ -4,15 +4,27 @@
 <template name="posts">
     <div>
         <ul>
-          {{#each list}}
-            <div> {{username}}</div>
-              <li>
-                  <span style="color:darkgreen">[{{username}}]</span>
-                  <span style="color:darkslategray">{{message}}</span>
-                  <span style="color:darkblue">{{createAt}}</span>
-                  <button id="messageDelbtn" createdAt="{{createAt}}" >X</button>
-              </li>
-          {{/each}}
+            {{#each postlist}}
+                <a>[{{number}}] : </a>
+                <a>제목 : </a>
+                <a href="posts">{{title}}</a>
+                <span>글쓴이 : {{username}}</span>
+                <span>생성시간 : {{createdAt}}</span>
+            <div>
+                <div>내용 : {{contents}}</div>
+                <li>
+                    {{#each commentlist}}
+                        <span style="color:darkgreen">[{{username}}]</span>
+                        <span style="color:darkslategray">{{comments}}</span>
+                        <span style="color:darkblue">{{createdAt}}</span>
+                        <button id="messageDelbtn" createdAt="{{createdAt}}" >X</button>
+                    {{/each}}
+                </li>
+                <label >[{{currentUsername}}]</label>
+                <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
+            </div>
+            {{/each}}
         </ul>
+        <button>글쓰기</button>
     </div>
 </template>

@@ -21,7 +21,7 @@ if (Meteor.isClient) {
                 var username = template.$('#username').val();
                 Session.set('username', username);
 
-                Router.go('chat');
+                Router.go('/');
             },
             'click #join' : function (event, template) {
                 var userid = template.$('#username').val();
