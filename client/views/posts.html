@@ -9,29 +9,12 @@
                     <a>[{{number}}] : </a>
                     <a>제목 : </a>
                     <!--click event시 postpage/postid로 route해줘야함-->
-                    <a class="title" postId="{{_id}}" href="">{{title}}</a>
+                    <a class="title" postId="{{_id}}">{{title}}</a>
                     <a> / </a>
                     <span>글쓴이 : {{username}}</span>
                     <a> / </a>
                     <span>생성시간 : {{createdAt}}</span>
                 </div>
-
-            <!--
-                해당 부분은 Contents.html로 옮길 예정입니다.
-            <div>
-                <div>내용 : {{contents}}</div>
-                <li>
-                    {{#each commentlist}}
-                        <span style="color:darkgreen">[{{username}}]</span>
-                        <span style="color:darkslategray">{{comments}}</span>
-                        <span style="color:darkblue">{{createdAt}}</span>
-                        <button id="messageDelbtn" createdAt="{{createdAt}}" >X</button>
-                    {{/each}}
-                </li>
-                <label >[{{currentUsername}}]</label>
-                <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
-            </div>
-            -->
             {{/each}}
         </ul>
         <div style="width:300px;margin:auto;">

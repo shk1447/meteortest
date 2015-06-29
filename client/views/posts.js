@@ -54,7 +54,7 @@ if (Meteor.isClient) {
         'click .title' : function(event, template){
             var postId = $(event.toElement).attr('postId');
             console.log(postId);
-            Router.go('postpage', {'id':'postId'});
+            Router.go('/postpage/'+postId);
         }
     });
 }

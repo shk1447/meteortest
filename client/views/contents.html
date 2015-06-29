@@ -1,0 +1,20 @@
+<!--
+  author : shkim <shk1447@n3n.co.kr>
+-->
+<template name="contents">
+  <div>
+      {{#each postlist}}
+        <div>내용 : {{contents}}</div>
+        <li>
+            {{#each commentlist}}
+                <span style="color:darkgreen">[{{username}}]</span>
+                <span style="color:darkslategray">{{comments}}</span>
+                <span style="color:darkblue">{{createdAt}}</span>
+                <button id="messageDelbtn" createdAt="{{createdAt}}" >X</button>
+            {{/each}}
+        </li>
+        <label >[{{currentUsername}}]</label>
+        <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
+      {{/each}}
+  </div>
+</template>
