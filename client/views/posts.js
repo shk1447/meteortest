@@ -9,6 +9,8 @@ if (Meteor.isClient) {
     });
 
     Template.posts.onRendered(function () {
+        var test = this.data;
+        console.log(test);
     });
 
     Template.posts.onDestroyed(function () {
@@ -48,6 +50,11 @@ if (Meteor.isClient) {
             Meteor.call('insertPosts', number, username, title, contents);
             template.$('#titleinput').val('');
             template.$('#postinput').val('');
+        },
+        'click .title' : function(event, template){
+            var postId = $(event.toElement).attr('postId');
+            console.log(postId);
+            Router.go('postpage', {'id':'postId'});
         }
     });
 }

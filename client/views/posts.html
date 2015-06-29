@@ -2,13 +2,15 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="posts">
-    <div>
+    <div style="width:1024px;height:720px;margin:auto;">
         <ul>
             {{#each postlist}}
                 <a>[{{number}}] : </a>
                 <a>제목 : </a>
-                <a href="posts">{{title}}</a>
+                <a class="title" postId="{{_id}}" href="">{{title}}</a>
+                <a> / </a>
                 <span>글쓴이 : {{username}}</span>
+                <a> / </a>
                 <span>생성시간 : {{createdAt}}</span>
             <div>
                 <div>내용 : {{contents}}</div>
@@ -25,6 +27,11 @@
             </div>
             {{/each}}
         </ul>
-        <button>글쓰기</button>
+        <div style="width:100px;margin:auto;">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+        </div>
+        <input type="button" value="글쓰기" style="float:right;"/>
     </div>
 </template>
