@@ -23,12 +23,8 @@ if (Meteor.isClient) {
             var count = postsCollection.find().count();
 
             return postsCollection.find({}, {sort: {createAt:1}, skip:count-40});
-        },
-        commentlist: function () {
-            var count = chatCollection.find().count();
-
-            return chatCollection.find({}, {sort: {createAt:1}, skip:count-40});
         }
+
     });
 
     Template.chat.events({
@@ -36,8 +32,7 @@ if (Meteor.isClient) {
             if(event.keyCode === 13){
                 var username = Session.get('username');
                 var message = template.$('#messageInput').val();
-                var date = new Date();
-                var id = Meteor.call('insertMessage', username, message);
+                console.log( template.$('input')[0]);
                 template.$('#messageInput').val('');
             }
         },
@@ -47,9 +42,10 @@ if (Meteor.isClient) {
         },
         'click #postbtn' : function(event, template){
             var username = Session.get('username');
+            var number = postsCollection.find().count() + 1;
             var title = template.$('#titleinput').val();
             var contents = template.$('#postinput').val();
-            Meteor.call('insertPosts', username, title, contents);
+            Meteor.call('insertPosts', number, username, title, contents);
             template.$('#titleinput').val('');
             template.$('#postinput').val('');
         }

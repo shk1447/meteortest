@@ -1,0 +1,14 @@
+<!--
+  author : shkim <shk1447@n3n.co.kr>
+-->
+<template name="layout">
+    <header>
+        {{> yield "header"}}
+    </header>
+    <article>
+        {{> yield "sub"}}
+    </article>
+    <article>
+      {{> yield "main"}}
+    </article>
+</template>

@@ -7,7 +7,7 @@ Meteor.methods({
         check(username, String);
         check(message, String);
         var date = new Date();
-        var id = chatCollection.insert({
+        var id = postsCollection.save({
             username: username,
             message: message,
             createAt: date
@@ -35,19 +35,28 @@ Meteor.methods({
 
         return id;
     },
-    insertPosts: function (username, title, contents) {
+    insertPosts: function (number, username, title, contents) {
         check(username, String);
         check(title, String);
         check(contents, String);
 
         var date = new Date();
 
+
         var id = postsCollection.insert({
+            number : number,
             username : username,
             title: title,
             contents: contents,
-            createdAt: date
+            createdAt: date,
+            commentlist:[{
+                username:"test",
+                comments:"hahahahaha",
+                createdAt:"12315"
+            }]
         });
+
+        console.log(id);
 
         return id;
     }
