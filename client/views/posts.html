@@ -5,13 +5,19 @@
     <div style="width:1024px;height:720px;margin:auto;">
         <ul>
             {{#each postlist}}
-                <a>[{{number}}] : </a>
-                <a>제목 : </a>
-                <a class="title" postId="{{_id}}" href="">{{title}}</a>
-                <a> / </a>
-                <span>글쓴이 : {{username}}</span>
-                <a> / </a>
-                <span>생성시간 : {{createdAt}}</span>
+                <div>
+                    <a>[{{number}}] : </a>
+                    <a>제목 : </a>
+                    <!-- -->
+                    <a class="title" postId="{{_id}}" href="">{{title}}</a>
+                    <a> / </a>
+                    <span>글쓴이 : {{username}}</span>
+                    <a> / </a>
+                    <span>생성시간 : {{createdAt}}</span>
+                </div>
+
+            <!--
+                해당 부분은 Contents.html로 옮길 예정입니다.
             <div>
                 <div>내용 : {{contents}}</div>
                 <li>
@@ -25,12 +31,26 @@
                 <label >[{{currentUsername}}]</label>
                 <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
             </div>
+            -->
+
+
             {{/each}}
         </ul>
-        <div style="width:100px;margin:auto;">
+        <div style="width:300px;margin:auto;">
+            <a href="">prev</a>
+            <!--동적 생성이 가능하도록 구현해야합니다.-->
             <a href="">1</a>
             <a href="">2</a>
             <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">7</a>
+            <a href="">8</a>
+            <a href="">9</a>
+            <a href="">10</a>
+            <!--동적 생성이 가능하도록 구현해야합니다.-->
+            <a href="">next</a>
         </div>
         <input type="button" value="글쓰기" style="float:right;"/>
     </div>
