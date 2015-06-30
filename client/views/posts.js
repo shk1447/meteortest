@@ -6,14 +6,16 @@ if (Meteor.isClient) {
     Template.posts.onCreated(function () {
         this.subscribe('chat_publish');
         this.subscribe('posts_publish');
+        console.log('created')
     });
 
     Template.posts.onRendered(function () {
         var test = this.data;
-        console.log(test);
+        console.log(test.count());
     });
 
     Template.posts.onDestroyed(function () {
+        console.log('destroyed');
     });
 
     Template.posts.helpers({
@@ -23,8 +25,10 @@ if (Meteor.isClient) {
 
         postlist: function(){
             var count = postsCollection.find().count();
+            var result = postsCollection.find({}, {sort: {createAt:1}});
 
-            return postsCollection.find({}, {sort: {createAt:1}, skip:count-40});
+            console.log(this.data);
+            return result;
         }
 
     });
