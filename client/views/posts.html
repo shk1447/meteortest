@@ -6,7 +6,6 @@
         <ul>
             {{#each postlist}}
                 <div>
-                    <a>[{{number}}] : </a>
                     <a>제목 : </a>
                     <!--click event시 postpage/postid로 route해줘야함-->
                     <a class="title" postId="{{_id}}">{{title}}</a>
@@ -33,6 +32,6 @@
             <!--동적 생성이 가능하도록 구현해야합니다.-->
             <a href="">next</a>
         </div>
-        <input type="button" value="글쓰기" style="float:right;"/>
+        <input id="writebtn" type="button" value="글쓰기" style="float:right;"/>
     </div>
 </template>

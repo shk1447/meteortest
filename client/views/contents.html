@@ -2,19 +2,21 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="contents">
-  <div>
+  <div style="width:1024px; margin:auto;">
       {{#each postlist}}
-        <textarea>내용 : {{contents}}</textarea>
-        <li>
-            {{#each commentlist}}
-                <span style="color:darkgreen">[{{username}}]</span>
-                <span style="color:darkslategray">{{comments}}</span>
-                <span style="color:darkblue">{{createdAt}}</span>
-                <button id="messageDelbtn" createdAt="{{createdAt}}" >X</button>
-            {{/each}}
-        </li>
-        <label >[{{currentUsername}}]</label>
-        <input id="messageInput" test="{{number}}" style="width:40%;" placeholder="댓글을 입력하시오!" />
+          <input style="width:1024px;" value="{{title}}"/>
+          <textarea style="width:1024px; height:512px;" contenteditable="false">{{contents}}</textarea>
+          {{#each commentlist}}
+              <li>
+                  <span style="color:darkgreen">[{{userid}}]</span>
+                  <span style="color:darkslategray">{{comment}}</span>
+                  <span style="color:darkblue">{{commentedAt}}</span>
+              </li>
+          {{/each}}
+          <div style="width:1024px;">
+              <label style="width:10%" >[{{currentUsername}}]</label>
+              <input id="messageInput" style="width:90%" placeholder="댓글을 입력하시오!" />
+          </div>
       {{/each}}
   </div>
 </template>

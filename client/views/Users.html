@@ -4,12 +4,16 @@
 <template name="users">
     <ul>
       {{#each userlist}}
-          <div>
+          <div style="width:1024px; margin:auto;">
+              <span>아이디 : {{userid}}</span>
+              <a> | </a>
               <span>이름 : {{profile.name}}</span>
-              <a> / </a>
+              <a> | </a>
               <span>나이 : {{profile.age}}</span>
-              <a> / </a>
+              <a> | </a>
               <span>성별 : {{profile.gender}}</span>
+              <a> | </a>
+              <button>강제탈퇴</button>
           </div>
       {{/each}}
     </ul>

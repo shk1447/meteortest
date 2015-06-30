@@ -3,18 +3,37 @@
  */
 
 Meteor.methods({
-    insertUserInfo: function (userid, password, profile) {
-        check(userid, String);
-        check(password, String);
-
+    insertuser: function (userid, password, profile) {
         var date = new Date();
-        var id = userCollection.insert({
-            userid : userid,
-            password : password,
-            profile : profile,
-            createdAt : date
-        });
 
-        return id;
+        var users = userCollection.find({});
+        if(users)
+        {
+            var flag = true;
+            users.forEach(function(data){
+                if(data)
+                {
+                    if(data.userid === userid)
+                    {
+                        flag = false;
+                    }
+                }
+            });
+        }
+
+        if(flag){
+            var id = userCollection.insert({
+                userid : userid,
+                password : password,
+                profile : profile,
+                createdAt : date
+            });
+
+            return id;
+        }
+        else
+        {
+            return 'exist';
+        }
     }
 });

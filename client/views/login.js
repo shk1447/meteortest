@@ -19,6 +19,7 @@ if (Meteor.isClient) {
     Template.login.events({
             'click #enter': function (event, template) {
                 var username = template.$('#username').val();
+                var password = template.$('#password').val();
                 Session.set('username', username);
 
                 Router.go('/');

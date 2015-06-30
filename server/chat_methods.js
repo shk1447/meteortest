@@ -22,29 +22,39 @@ Meteor.methods({
             username: username
         });
     },
-    insertPosts: function (number, username, title, contents) {
-        check(username, String);
+    insertPosts: function (userid, title, contents) {
+        check(userid, String);
         check(title, String);
         check(contents, String);
 
         var date = new Date();
 
-
         var id = postsCollection.insert({
-            number : number,
-            username : username,
+            userid : userid,
             title: title,
             contents: contents,
-            createdAt: date,
-            commentlist:[{
-                username:"test",
-                comments:"hahahahaha",
-                createdAt:"12315"
-            }]
+            createdAt: date
         });
 
         console.log(id);
 
         return id;
+    },
+    updatePosts: function (postid, username, comment){
+        console.log('receive');
+
+        var date = new Date();
+        var test = postsCollection.find({_id:postid});
+        test.forEach(function(data){
+            if(data.commentlist)
+            {
+                data.commentlist.push({ userid:username, comment:comment, commectedAt:date });
+            }
+            else
+            {
+                data.commentlist = [{ userid:username, comment:comment, commectedAt:date }];
+            }
+            postsCollection.update({_id:postid}, data);
+        });
     }
 });
