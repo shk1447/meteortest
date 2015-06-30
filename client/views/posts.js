@@ -11,7 +11,7 @@ if (Meteor.isClient) {
 
     Template.posts.onRendered(function () {
         var test = this.data;
-        console.log(test.count());
+        console.log('rendered count : ' + test.count());
     });
 
     Template.posts.onDestroyed(function () {
@@ -27,7 +27,7 @@ if (Meteor.isClient) {
             var count = postsCollection.find().count();
             var result = postsCollection.find({}, {sort: {createAt:1}});
 
-            console.log(this.data);
+            console.log('helper count : ' + count);
             return result;
         }
 

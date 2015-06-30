@@ -22,19 +22,6 @@ Meteor.methods({
             username: username
         });
     },
-    insertUserInfo: function (username, password) {
-        check(username, String);
-        check(password, String);
-
-        var date = new Date();
-        var id = userCollection.insert({
-            userid : username,
-            password : password,
-            createdAt : date
-        });
-
-        return id;
-    },
     insertPosts: function (number, username, title, contents) {
         check(username, String);
         check(title, String);
