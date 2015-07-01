@@ -2,34 +2,35 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="join">
-    <div style="width:1024px;height:720px;margin:auto;">
+    <div style="float: right;">
         <div>
-            <label>ID : </label>
-            <input id="id"/>
+            <input type="text" id="id" placeholder="아이디를 입력하시오."/>
         </div>
+
         <div>
-            <label>PASS : </label>
-            <input id="pass" type="password"/>
+            <input id="pass" type="password" placeholder="비밀번호를 입력하시오."/>
         </div>
+
         <div>
-            <label>CONFIRM : </label>
-            <input id="repass" type="password"/>
+            <input id="repass" type="password" placeholder="비밀번호를 다시 입력하시오."/>
         </div>
+
         <div>
-            <label>NAME : </label>
-            <input id="name"/>
+            <input type="text" id="name" placeholder="이름을 입력하시오."/>
         </div>
+
         <div>
-            <label>AGE : </label>
-            <input id="age"/>
+            <input type="text" id="age" placeholder="나이를 입력하시오."/>
         </div>
+
         <div>
-            <label>GENDER : </label>
-            <input id="gender"/>
+            <input type="text" id="gender" placeholder="성별을 입력하시오."/>
         </div>
-        <div>
-            <button id="joinbtn">JOIN</button>
-            <button id="cancelbtn">CANCEL</button>
+
+        <div style="float: right;">
+            <input class="btn" type="button" id="joinbtn" value="SAVE"/>
+            <input class="btn" type="button" id="cancelbtn" value="CANCEL"/>
         </div>
+
     </div>
 </template>

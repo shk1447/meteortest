@@ -2,14 +2,12 @@
   author : Seokhwan kim <shk1447@n3n.co.kr>
 -->
 <template name="header">
-    <nav>
-        <div>
-            <a href="/">Bulletin Board</a>
-            <a style="float: right;" href="login">로그인</a>
-            <span style="float: right;">|</span>
-            <a style="float: right;" href="join">회원가입</a>
-            <span style="float: right;">|</span>
-            <a style="float: right;" href="manageusers">회원 관리</a>
+    <nav class="nav">
+        <div style="height:40px;">
+            <a style="float:left; margin-top:10px; margin-left: 20px;" href="/">Bulletin Board</a>
+            <a style="float: right; margin-top:10px; margin-right: 20px;" href="/login">로그인</a>
+            <a class="dropdown" style="float: right; margin-top:10px; margin-right: 10px" href="/join">회원관리</a>
+            <span style="float:right; margin-top:10px; margin-right: 40px;">{{loginedid}}</span>
         </div>
     </nav>
 </template>

@@ -3,11 +3,13 @@
 -->
 <template name="login">
         <div style="float:right">
-            <label>ID : </label>
-            <input type="text" id="username" />
+            <div>
+                <input style="float: right;" type="text" id="username" placeholder="아이디"/>
+            </div>
 
-            <label>PASS : </label>
-            <input type="password" id="password" />
-            <button id="enter">SIGN IN</button>
+            <div style="clear:both">
+                <input type="password" id="password" placeholder="비밀번호"/>
+            </div>
+            <input style="float:right" class="btn btn-success" type="button" value="SIGN IN" id="enter"/>
         </div>
 </template>

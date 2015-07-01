@@ -4,11 +4,11 @@
 
 if (Meteor.isClient) {
     Template.posts.onCreated(function () {
-        this.subscribe('chat_publish');
         this.subscribe('posts_publish');
     });
 
     Template.posts.onRendered(function () {
+
     });
 
     Template.posts.onDestroyed(function () {
@@ -21,10 +21,19 @@ if (Meteor.isClient) {
         },
 
         postlist: function(){
-            return this.postlist;
+            return postsdata(this).postlist;
         },
         pagelist: function () {
-            return this.pagelist;
+            return postsdata(this).pagelist;
+        },
+        writeValid: function(){
+            var islogin = Session.get('username');
+            if(islogin){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     });
 
@@ -54,4 +63,23 @@ if (Meteor.isClient) {
             Router.go('/newpost')
         }
     });
+
+    var postsdata = function (num) {
+        var skipcount = (num - 1) * 5;
+
+        var count = postsCollection.find({}).count();
+
+        var aa = count / 5;
+        var bb = Math.ceil(aa);
+
+        console.log(count);
+        var arr = [];
+        for(var i = 1; i <  bb+1; i++){
+            arr.push({number:i});
+        }
+
+        var data = {pagelist:arr, postlist: postsCollection.find({}, {sort: {createdAt:-1}, skip:skipcount, limit:5})};
+
+        return data;
+    }
 }

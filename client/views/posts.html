@@ -5,24 +5,22 @@
     <div style="width:1024px;height:720px;margin:auto;">
         <ul>
             {{#each postlist}}
-                <div>
-                    <a>제목 : </a>
+                <div class="post">
+                    <span>제목 : </span>
                     <!--click event시 postpage/postid로 route해줘야함-->
                     <a class="title" href="/postpage/{{_id}}">{{title}}</a>
-                    <a> / </a>
+                    <span> | </span>
                     <span>글쓴이 : {{userid}}</span>
-                    <a> / </a>
+                    <span> | </span>
                     <span>생성시간 : {{createdAt}}</span>
                 </div>
             {{/each}}
         </ul>
-        <div style="width:300px;margin:auto;">
-            <a href="">prev</a>
+        <div style="width:100px; margin:auto;">
             {{#each pagelist}}
                 <a class="paging" href="/posts/{{number}}" style="text-decoration: underline">{{number}}</a>
             {{/each}}
-            <a href="">next</a>
         </div>
-        <input id="writebtn" type="button" value="글쓰기" style="float:right;"/>
+        <input id="writebtn" class="btn btn-info" type="button" value="글쓰기" style="float:right;"/>
     </div>
 </template>

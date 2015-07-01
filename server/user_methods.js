@@ -56,5 +56,8 @@ Meteor.methods({
         }
         console.log(result);
         return result;
+    },
+    removeuser:function(userid){
+        userCollection.remove({userid:userid});
     }
 });

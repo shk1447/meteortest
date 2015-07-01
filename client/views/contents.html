@@ -4,18 +4,21 @@
 <template name="contents">
   <div style="width:1024px; margin:auto;">
       {{#each postlist}}
-          <input style="width:1024px;" value="{{title}}"/>
-          <textarea style="width:1024px; height:512px;" contenteditable="false">{{contents}}</textarea>
+          <textarea style="width:1024px;" disabled="false">{{title}}</textarea>
+          <textarea style="width:1024px; height:512px;" disabled="false">{{contents}}</textarea>
           {{#each commentlist}}
-              <li>
-                  <span style="color:darkgreen">[{{userid}}]</span>
-                  <span style="color:darkslategray">{{comment}}</span>
-                  <span style="color:darkblue">{{commentedAt}}</span>
-              </li>
+              <div class="comments">
+                  <li>
+                      <h4>
+                          <span style="color:darkgreen">[{{userid}}]</span>
+                          <span style="color:darkblue">{{commentedAt}}</span>
+                          <span style="color:darkslategray">{{comment}}</span>
+                      </h4>
+                  </li>
+              </div>
           {{/each}}
-          <div style="width:1024px;">
-              <label style="width:10%" >[{{currentUsername}}]</label>
-              <input id="messageInput" style="width:90%" placeholder="댓글을 입력하시오!" />
+          <div class="comment-form" style="width:1024px;">
+              <input id="messageInput" style="width:1024px" placeholder="댓글을 입력하시오!" />
           </div>
       {{/each}}
   </div>

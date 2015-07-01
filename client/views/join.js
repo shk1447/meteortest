@@ -34,7 +34,7 @@ if (Meteor.isClient) {
                     }
                     else
                     {
-                        Router.go('/');
+                        Router.go('/manageusers');
                     }
                 });
             }
@@ -45,7 +45,7 @@ if (Meteor.isClient) {
             }
         },
         'click #cancelbtn':function(event, template){
-            Router.go('/');
+            Router.go('/manageusers');
         }
     });
 }

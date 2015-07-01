@@ -20,5 +20,12 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.users.events({});
+    Template.users.events({
+        'click .btn':function(event, template){
+            var userid = template.$(event.toElement).attr('test');
+            Meteor.call('removeuser', userid, function(err, result){
+
+            });
+        }
+    });
 }
