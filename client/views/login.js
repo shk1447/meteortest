@@ -4,8 +4,6 @@
 
 if (Meteor.isClient) {
     Template.login.onCreated(function () {
-        // user database publish
-        this.subscribe('user_publish');
     });
 
     Template.login.onRendered(function () {
@@ -20,9 +18,20 @@ if (Meteor.isClient) {
             'click #enter': function (event, template) {
                 var username = template.$('#username').val();
                 var password = template.$('#password').val();
-                Session.set('username', username);
 
-                Router.go('/');
+                Meteor.call('confirmuser', username, password, function(error, result){
+                    if(result === 'OK'){
+                        Session.set('username', username);
+                        Router.go('/');
+                    }
+                    else if(result === 'HATE'){
+                        template.$('#password').val('');
+                    }
+                    else{
+                        template.$('#username').val('');
+                        template.$('#password').val('');
+                    }
+                });
             }
         }
     );

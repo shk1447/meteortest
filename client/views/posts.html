@@ -8,9 +8,9 @@
                 <div>
                     <a>제목 : </a>
                     <!--click event시 postpage/postid로 route해줘야함-->
-                    <a class="title" postId="{{_id}}">{{title}}</a>
+                    <a class="title" href="/postpage/{{_id}}">{{title}}</a>
                     <a> / </a>
-                    <span>글쓴이 : {{username}}</span>
+                    <span>글쓴이 : {{userid}}</span>
                     <a> / </a>
                     <span>생성시간 : {{createdAt}}</span>
                 </div>
@@ -18,18 +18,9 @@
         </ul>
         <div style="width:300px;margin:auto;">
             <a href="">prev</a>
-            <!--동적 생성이 가능하도록 구현해야합니다.-->
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">6</a>
-            <a href="">7</a>
-            <a href="">8</a>
-            <a href="">9</a>
-            <a href="">10</a>
-            <!--동적 생성이 가능하도록 구현해야합니다.-->
+            {{#each pagelist}}
+                <a class="paging" href="/posts/{{number}}" style="text-decoration: underline">{{number}}</a>
+            {{/each}}
             <a href="">next</a>
         </div>
         <input id="writebtn" type="button" value="글쓰기" style="float:right;"/>

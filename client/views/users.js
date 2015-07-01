@@ -4,6 +4,8 @@
 
 if (Meteor.isClient) {
     Template.users.onCreated(function () {
+        // user database publish
+        this.subscribe('user_publish');
     });
 
     Template.users.onRendered(function () {
@@ -12,7 +14,11 @@ if (Meteor.isClient) {
     Template.users.onDestroyed(function () {
     });
 
-    Template.users.helpers({});
+    Template.users.helpers({
+        userlist : function(){
+            return userCollection.find({});
+        }
+    });
 
     Template.users.events({});
 }

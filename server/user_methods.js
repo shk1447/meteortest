@@ -35,5 +35,26 @@ Meteor.methods({
         {
             return 'exist';
         }
+    },
+    confirmuser: function(userid, password){
+        var users = userCollection.find({});
+        var result = 'NO';
+        if(users) {
+            users.forEach(function (data) {
+                if (data) {
+                    if (data.userid === userid) {
+                        if(data.password === password){
+                            result = 'OK';
+                        }
+                        else
+                        {
+                            result = 'HATE'
+                        }
+                    }
+                }
+            });
+        }
+        console.log(result);
+        return result;
     }
 });

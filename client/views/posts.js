@@ -6,12 +6,9 @@ if (Meteor.isClient) {
     Template.posts.onCreated(function () {
         this.subscribe('chat_publish');
         this.subscribe('posts_publish');
-        console.log('created')
     });
 
     Template.posts.onRendered(function () {
-        var test = this.data;
-        console.log('rendered count : ' + test.count());
     });
 
     Template.posts.onDestroyed(function () {
@@ -24,13 +21,11 @@ if (Meteor.isClient) {
         },
 
         postlist: function(){
-            var count = postsCollection.find().count();
-            var result = postsCollection.find({}, {sort: {createAt:1}});
-
-            console.log('helper count : ' + count);
-            return result;
+            return this.postlist;
+        },
+        pagelist: function () {
+            return this.pagelist;
         }
-
     });
 
     Template.posts.events({
@@ -54,11 +49,6 @@ if (Meteor.isClient) {
             Meteor.call('insertPosts', number, username, title, contents);
             template.$('#titleinput').val('');
             template.$('#postinput').val('');
-        },
-        'click .title' : function(event, template){
-            var postId = $(event.toElement).attr('postId');
-            console.log(postId);
-            Router.go('/postpage/'+postId);
         },
         'click #writebtn' : function(event, template){
             Router.go('/newpost')
