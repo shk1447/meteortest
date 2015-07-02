@@ -6,15 +6,15 @@
       {{#each userlist}}
           <div class="load-more" style="width:1024px; margin:auto;">
               <ul>
-                  <span>아이디</span>
-                  <input type="text" style="width:10%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{userid}}"/>
-                  <span style="margin-left: 20px;">이름</span>
-                  <input type="text" style="width:8%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.name}}"/>
-                  <span style="margin-left: 20px;">나이</span>
-                  <input type="text" style="width:3%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.age}}"/>
-                  <span style="margin-left: 20px;">성별</span>
-                  <input type="text" style="width:5%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.gender}}"/>
-                  <button class="btn btn-danger" style="width:10%; margin-left: 40px; visibility: {{valid}}" test="{{userid}}">강제탈퇴</button></ul>
+                  <span>아이디 : </span>
+                  <input type="text" style="width:10%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{userid}}"/>
+                  <span style="margin-left: 20px; height: auto;">이름 : </span>
+                  <input type="text" style="width:8%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.name}}"/>
+                  <span style="margin-left: 20px;">나이 : </span>
+                  <input type="text" style="width:4%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.age}}"/>
+                  <span style="margin-left: 20px;">성별 : </span>
+                  <input type="text" style="width:5%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.gender}}"/>
+                  <button class="btn btn-danger" style="width:10%; height: auto; margin-left: 40px; visibility: {{valid}}" test="{{userid}}">강제추방</button></ul>
           </div>
       {{/each}}
     </ul>
