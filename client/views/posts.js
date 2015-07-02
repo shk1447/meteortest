@@ -67,11 +67,9 @@ if (Meteor.isClient) {
             Router.go('/newpost');
         },
         'keyup #searchbox' : function (event, template){
-            if(event.keyCode === 13){
-                var keyword = template.$('#searchbox').val();
-                Session.set('keyword', keyword);
-                Router.go('/posts/'+'1'+'/'+keyword);
-            }
+            var keyword = template.$('#searchbox').val();
+            Session.set('keyword', keyword);
+            Router.go('/posts/'+'1'+'/'+keyword);
         }
     });
 

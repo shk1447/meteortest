@@ -2,9 +2,10 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="users">
-    <ul>
-      {{#each userlist}}
-          <div class="load-more" style="width:1024px; margin:auto;">
+    <ul style="width:1024px; margin:auto;">
+        <input id="searchuser" type="search" style="float:right; height:auto;"/>
+        {{#each userlist}}
+          <div class="load-more" style="width:1024px; margin:auto; clear:both;">
               <ul>
                   <span>아이디 : </span>
                   <input type="text" style="width:10%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{userid}}"/>
@@ -16,6 +17,6 @@
                   <input type="text" style="width:5%; height: auto; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.gender}}"/>
                   <button class="btn btn-danger" style="width:10%; height: auto; margin-left: 40px; visibility: {{valid}}" test="{{userid}}">강제추방</button></ul>
           </div>
-      {{/each}}
+        {{/each}}
     </ul>
 </template>

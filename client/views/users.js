@@ -16,7 +16,8 @@ if (Meteor.isClient) {
 
     Template.users.helpers({
         userlist : function(){
-            return userCollection.find({});
+            var ddd = this.toString();
+            return userCollection.find({"profile.name":{$regex:ddd}});
         },
         valid:function(){
             if(Session.get('username')){
@@ -42,6 +43,10 @@ if (Meteor.isClient) {
 
                 });
             }
+        },
+        'keyup #searchuser': function (event, template) {
+            var key = template.$('#searchuser').val();
+            Router.go('/manageusers/' + key)
         }
     });
 }
