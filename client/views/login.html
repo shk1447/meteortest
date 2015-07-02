@@ -3,23 +3,23 @@
 -->
 <template name="login">
     {{#if curuser}}
-        <div style="float:right; margin-right: 20px;">
+        <form style="float:right; margin-right: 20px;">
             <div>
-                <input style="float: right;" type="text" id="loginid" value="{{curuser}}" disabled="false"/>
+                <input style="float: right; height: auto;" type="text" id="loginid" value="{{curuser}}" disabled="false"/>
             </div>
 
             <input style="float:right" class="btn btn-warning" type="button" value="LOGOUT" id="leave"/>
-        </div>
+        </form>
     {{else}}
-        <div style="float:right; margin-right: 20px;">
+        <form style="float:right; margin-right: 20px;">
             <div>
-                <input style="float: right;" type="text" id="username" placeholder="아이디"/>
+                <input style="float: right; height: auto;" type="text" id="username" placeholder="아이디"/>
             </div>
 
             <div style="clear:both">
-                <input type="password" id="password" placeholder="비밀번호"/>
+                <input style="height: auto;" type="password" id="password" placeholder="비밀번호"/>
             </div>
             <input style="float:right" class="btn btn-success" type="button" value="SIGN IN" id="enter"/>
-        </div>
+        </form>
     {{/if}}
 </template>

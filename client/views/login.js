@@ -26,7 +26,6 @@ if (Meteor.isClient) {
                 Meteor.call('confirmuser', username, password, function(error, result){
                     if(result === 'OK'){
                         Session.set('username', username);
-                        Router.go('/');
                     }
                     else if(result === 'HATE'){
                         template.$('#password').val('');

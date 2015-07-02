@@ -2,13 +2,10 @@
   author : shkim <shk1447@n3n.co.kr>
 -->
 <template name="layout">
-    <header>
+    <header style="height: 80px;">
         {{> yield "header"}}
     </header>
-    <article style="float:right;">
-        {{> yield "sub"}}
-    </article>
-    <article>
+    <body>
       {{> yield "main"}}
-    </article>
+    </body>
 </template>

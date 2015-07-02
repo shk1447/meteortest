@@ -32,10 +32,6 @@ if (Meteor.isClient) {
                     {
                         template.$('#id').val('');
                     }
-                    else
-                    {
-                        Router.go('/manageusers');
-                    }
                 });
             }
             else
@@ -43,9 +39,6 @@ if (Meteor.isClient) {
                 retflag = false;
                 template.$('#repass').val('');
             }
-        },
-        'click #cancelbtn':function(event, template){
-            Router.go('/manageusers');
         }
     });
 }

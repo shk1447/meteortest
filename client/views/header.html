@@ -2,12 +2,41 @@
   author : Seokhwan kim <shk1447@n3n.co.kr>
 -->
 <template name="header">
-    <nav class="nav">
-        <div style="height:40px;">
-            <a style="float:left; margin-top:10px; margin-left: 20px;" href="/">Bulletin Board</a>
-            <a style="float: right; margin-top:10px; margin-right: 20px;" href="/login">로그인</a>
-            <a style="float: right; margin-top:10px; margin-right: 10px;" href="/join">회원관리</a>
-            <span style="float:right; margin-top:10px; margin-right: 40px;">{{loginedid}}</span>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"><!-- Collapsable nav bar -->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="/">Bulletin Board</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="/manageusers">Users</a>
+                        </li>
+
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="" data-toggle="dropdown">Sign Up <strong class="caret"></strong></a>
+                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                {{>join}}
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                {{>login}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
 </template>

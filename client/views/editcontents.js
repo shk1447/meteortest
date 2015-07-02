@@ -22,9 +22,13 @@ if (Meteor.isClient) {
             userid = Session.get('username');
             var title = template.$('#title').val();
             var contents = template.$('#contents').val();
-            var id = Meteor.call('insertPosts', userid, title, contents);
-            console.log('responseid : '+ id);
-            Router.go('/');
+
+            if(title){
+                var id = Meteor.call('insertPosts', userid, title, contents);
+                Router.go('/');
+            } else {
+                alert('제목을 입력하시오.')
+            }
         },
         'click #cancelbtn' : function(event, template){
             Router.go('/');
