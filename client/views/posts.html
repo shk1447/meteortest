@@ -9,10 +9,8 @@
                     <span>제목 : </span>
                     <!--click event시 postpage/postid로 route해줘야함-->
                     <a class="title" href="/postpage/{{_id}}">{{title}}</a>
-                    <span> | </span>
-                    <span>글쓴이 : {{userid}}</span>
-                    <span> | </span>
-                    <span>생성시간 : {{createdAt}}</span>
+                    <span style="float:right">{{createdAt}}</span>
+                    <span style="float:right; margin-right: 70px;">글쓴이 : {{userid}}</span>
                 </div>
             {{/each}}
         </ul>

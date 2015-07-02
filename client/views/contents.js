@@ -37,6 +37,10 @@ if (Meteor.isClient) {
                     Meteor.call('updatePosts', postid, username, comment);
                     template.$('#messageInput').val('');
                 }
+                else
+                {
+                    alert('로그인을 하세요.')
+                }
             }
         }
     });
