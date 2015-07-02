@@ -65,11 +65,11 @@ if (Meteor.isClient) {
     });
 
     var postsdata = function (num) {
-        var skipcount = (num - 1) * 5;
+        var skipcount = (num - 1) * 10;
 
         var count = postsCollection.find({}).count();
 
-        var aa = count / 5;
+        var aa = count / 10;
         var bb = Math.ceil(aa);
 
         console.log(count);
@@ -78,7 +78,7 @@ if (Meteor.isClient) {
             arr.push({number:i});
         }
 
-        var data = {pagelist:arr, postlist: postsCollection.find({}, {sort: {createdAt:-1}, skip:skipcount, limit:5})};
+        var data = {pagelist:arr, postlist: postsCollection.find({}, {sort: {createdAt:-1}, skip:skipcount, limit:10})};
 
         return data;
     }

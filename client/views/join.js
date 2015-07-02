@@ -32,6 +32,15 @@ if (Meteor.isClient) {
                     {
                         template.$('#id').val('');
                     }
+                    else
+                    {
+                        var id = template.$('#id').val('');
+                        var pass = template.$('#pass').val('');
+                        var repass = template.$('#repass').val('');
+                        var name = template.$('#name').val('');
+                        var age = template.$('#age').val('');
+                        var gender = template.$('#gender').val('');
+                    }
                 });
             }
             else
