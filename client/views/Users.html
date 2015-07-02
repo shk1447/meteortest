@@ -14,7 +14,7 @@
                   <input type="text" style="width:3%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.age}}"/>
                   <span style="margin-left: 20px;">성별</span>
                   <input type="text" style="width:5%; margin-top: auto; margin-bottom: auto; text-align: center;" disabled="true" value="{{profile.gender}}"/>
-                  <button class="btn btn-danger" style="width:10%; margin-left: 40px;" test="{{userid}}">강제탈퇴</button></ul>
+                  <button class="btn btn-danger" style="width:10%; margin-left: 40px; visibility: {{valid}}" test="{{userid}}">강제탈퇴</button></ul>
           </div>
       {{/each}}
     </ul>

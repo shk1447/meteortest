@@ -17,6 +17,14 @@ if (Meteor.isClient) {
     Template.users.helpers({
         userlist : function(){
             return userCollection.find({});
+        },
+        valid:function(){
+            if(Session.get('username')){
+                return 'visible';
+            }
+            else{
+                return 'collapse'
+            }
         }
     });
 
