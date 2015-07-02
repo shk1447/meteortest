@@ -10,15 +10,17 @@
               <div class="comments">
                   <li>
                       <h4>
-                          <span style="color:darkgreen">[{{userid}}]</span>
-                          <span style="color:darkblue">{{commentedAt}}</span>
-                          <span style="color:darkslategray">{{comment}}</span>
+                          <input type="text" style="color:darkgreen; width:100px; height: auto; text-align: center;" disabled value="{{userid}}"/>
+                          <span style="color:darkgreen; width:100%; height: auto; overflow-wrap: hyphenate; word-break: break-all">{{comment}}</span>
+                          <input type="text" style="color:darkgreen; width:380px; height: auto; text-align: center; margin-left:600px" disabled value="{{commectedAt}}"/>
+                          <!--<input style="color:darkblue">{{commentedAt}}</span>
+                          <input style="color:darkslategray">{{comment}}</span>-->
                       </h4>
                   </li>
               </div>
           {{/each}}
           <div class="comment-form" style="width:auto;">
-              <input id="messageInput" style="width:100%;" placeholder="댓글을 입력하시오!" />
+              <input type="text" id="messageInput" style="width:100%; height: auto; margin:auto;" placeholder="댓글을 입력하시오!" />
           </div>
       {{/each}}
   </div>

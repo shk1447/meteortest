@@ -18,5 +18,10 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.header.events({});
+    Template.header.events({
+        'click #home': function (event, template) {
+            Session.set('keyword', '');
+            Router.go('/');
+        }
+    });
 }
