@@ -2,7 +2,16 @@
   author : Seokhwan kim <shk1447@n3n.co.kr>
 -->
 <template name="login">
-        <div style="float:right">
+    {{#if curuser}}
+        <div style="float:right; margin-right: 20px;">
+            <div>
+                <input style="float: right;" type="text" id="loginid" value="{{curuser}}" disabled="false"/>
+            </div>
+
+            <input style="float:right" class="btn btn-warning" type="button" value="LOGOUT" id="leave"/>
+        </div>
+    {{else}}
+        <div style="float:right; margin-right: 20px;">
             <div>
                 <input style="float: right;" type="text" id="username" placeholder="아이디"/>
             </div>
@@ -12,4 +21,5 @@
             </div>
             <input style="float:right" class="btn btn-success" type="button" value="SIGN IN" id="enter"/>
         </div>
+    {{/if}}
 </template>

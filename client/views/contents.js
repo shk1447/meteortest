@@ -32,9 +32,11 @@ if (Meteor.isClient) {
                 var comment = template.$('#messageInput').val();
                 var postid = '';
                 postid = Session.get('postid');
-                console.log(postid);
-                Meteor.call('updatePosts', postid, username, comment);
-                template.$('#messageInput').val('');
+                if(username)
+                {
+                    Meteor.call('updatePosts', postid, username, comment);
+                    template.$('#messageInput').val('');
+                }
             }
         }
     });

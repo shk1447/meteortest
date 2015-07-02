@@ -29,10 +29,10 @@ if (Meteor.isClient) {
         writeValid: function(){
             var islogin = Session.get('username');
             if(islogin){
-                return true;
+                return 'visible';
             }
             else{
-                return false;
+                return 'collapse';
             }
         }
     });

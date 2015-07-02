@@ -4,7 +4,6 @@
 
 if (Meteor.isClient) {
     Template.editcontents.onCreated(function () {
-
     });
 
     Template.editcontents.onRendered(function () {

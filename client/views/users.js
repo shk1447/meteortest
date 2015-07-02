@@ -23,9 +23,17 @@ if (Meteor.isClient) {
     Template.users.events({
         'click .btn':function(event, template){
             var userid = template.$(event.toElement).attr('test');
-            Meteor.call('removeuser', userid, function(err, result){
+            var currentuser = Session.get('username');
+            if(currentuser === userid)
+            {
+                return;
+            }
+            else
+            {
+                Meteor.call('removeuser', userid, function(err, result){
 
-            });
+                });
+            }
         }
     });
 }

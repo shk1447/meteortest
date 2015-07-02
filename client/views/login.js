@@ -12,7 +12,11 @@ if (Meteor.isClient) {
     Template.login.onDestroyed(function () {
     });
 
-    Template.login.helpers({});
+    Template.login.helpers({
+        curuser:function(){
+            return Session.get('username');
+        }
+    });
 
     Template.login.events({
             'click #enter': function (event, template) {
@@ -32,6 +36,9 @@ if (Meteor.isClient) {
                         template.$('#password').val('');
                     }
                 });
+            },
+            'click #leave': function (event, template){
+                Session.set('username', '');
             }
         }
     );
