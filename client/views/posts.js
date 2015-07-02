@@ -21,10 +21,11 @@ if (Meteor.isClient) {
         },
 
         postlist: function(){
-            return postsdata(this).postlist;
+            return postsdata(this.num, this.keyword).postlist;
         },
         pagelist: function () {
-            return postsdata(this).pagelist;
+            console.log(this.keyword);
+            return postsdata(this.num, this.keyword).pagelist;
         },
         writeValid: function(){
             var islogin = Session.get('username');
@@ -34,6 +35,9 @@ if (Meteor.isClient) {
             else{
                 return 'collapse';
             }
+        },
+        keyword : function(){
+            return Session.get('keyword');
         }
     });
 
@@ -60,14 +64,20 @@ if (Meteor.isClient) {
             template.$('#postinput').val('');
         },
         'click #writebtn' : function(event, template){
-            Router.go('/newpost')
+            Router.go('/newpost');
+        },
+        'keyup #searchbox' : function (event, template){
+            if(event.keyCode === 13){
+                var keyword = template.$('#searchbox').val();
+                Session.set('keyword', keyword);
+                Router.go('/posts/'+'1'+'/'+keyword);
+            }
         }
     });
 
-    var postsdata = function (num) {
+    var postsdata = function (num, search) {
         var skipcount = (num - 1) * 10;
-
-        var count = postsCollection.find({}).count();
+        var count = postsCollection.find({title:{$regex:search}}).count();
 
         var aa = count / 10;
         var bb = Math.ceil(aa);
@@ -78,7 +88,7 @@ if (Meteor.isClient) {
             arr.push({number:i});
         }
 
-        var data = {pagelist:arr, postlist: postsCollection.find({}, {sort: {createdAt:-1}, skip:skipcount, limit:10})};
+        var data = {pagelist:arr, postlist: postsCollection.find({title:{$regex:search}}, {sort: {createdAt:-1}, skip:skipcount, limit:10})};
 
         return data;
     }

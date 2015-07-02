@@ -3,7 +3,8 @@
 -->
 <template name="posts">
     <div style="clear:both; width:1024px;height:720px;margin:auto;">
-        <ul>
+        <input id="searchbox" type="search" style="float:right; height:auto;"/>
+        <ul style="clear:both;">
             {{#each postlist}}
                 <div class="post">
                     <span>제목 : </span>
@@ -16,7 +17,7 @@
         </ul>
         <div style="width:100px; margin:auto;">
             {{#each pagelist}}
-                <a class="paging" href="/posts/{{number}}" style="text-decoration: underline">{{number}}</a>
+                <a class="paging" href="/posts/{{number}}/{{keyword}}" style="text-decoration: underline">{{number}}</a>
             {{/each}}
         </div>
         <input id="writebtn" class="btn btn-info" type="button" value="글쓰기" style="float:right; visibility: {{writeValid}}"/>
